@@ -1,5 +1,5 @@
 // array.forEach(callback(currentValue, index, array), thisArg);
-
+//Basic Iteration
 // const numbers = [1, 2, 3, 4, 5];
 
 // numbers.forEach((num) => {
@@ -7,6 +7,7 @@
 // });
 
 // --------------------------------------------------
+//2. Accessing Index and Array
 // const fruits = ['apple', 'banana', 'cherry'];
 
 // fruits.forEach((fruit, index) => {
@@ -14,6 +15,7 @@
 // });
 
 // --------------------------------------------------
+//3. Modifying Values in Another Array
 // const numbers = [1, 2, 3];
 // const doubled = [];
 
@@ -78,12 +80,77 @@
 // 5. Using return inside map()
 
 // const numbers2 = [1, 2, 3];
-// const transformed = numbers.map(num => {
+// const transformed = numbers2.map(num => {
 //   const double = num * 2;
 //   const triple = num * 3;
 //   return { double, triple };
 // });
 // console.log(transformed);
+//--------------------------------------------------
+// 6. change key's name in object of array
+// const data = [
+//     { oldKey1: 'value1', oldKey2: 'value2' },
+//     { oldKey1: 'value3', oldKey2: 'value4' },
+//   ];
+  
+//   const transformed = data.map((item) => {
+//     return {
+//       newKey1: item.oldKey1,
+//       newKey2: item.oldKey2
+//     };
+//   });
+  
+//   console.log(transformed);
+//--------------------------------------------------
+// 7. Adding Additional Fields to Objects
+// const users = [
+//     { name: 'Alice', age: 17 },
+//     { name: 'Bob', age: 22 },
+//     { name: 'Charlie', age: 15 },
+//   ];
+  
+//   const updatedUsers = users.map(user => ({
+//     ...user,
+//     isAdult: user.age >= 18,
+//   }));
+  
+//   console.log(updatedUsers);
+  //--------------------------------------------------
+  //  8. extracting specific fields from objects
+//   const products = [
+//     { id: 1, name: 'Laptop', price: 1000 },
+//     { id: 2, name: 'Phone', price: 500 },
+//     { id: 3, name: 'Tablet', price: 300 },
+//   ];
+  
+//   const productIds = products.map(product => ({
+//     id: product.id,
+//     name: product.name
+//   }));
+  
+//   console.log(productIds);
+
+//--------------------------------------------------
+// 7. Formatting Strings
+// const names = ['john', 'jane', 'doe'];
+
+// const capitalizedNames = names.map(name => name.at(0).toUpperCase() + name.slice(1));
+
+// console.log(capitalizedNames);
+
+//--------------------------------------------------
+//8. Transforming Nested Arrays
+// const data = [
+//     { name: 'Alice', scores: [10, 20, 30] },
+//     { name: 'Bob', scores: [15, 25, 35] },
+//   ];
+  
+//   const averageScores = data.map(item => ({
+//     name: item.name,
+//     averageScore: item.scores.reduce((sum, score) => sum + score, 0) / item.scores.length,
+//   }));
+  
+//   console.log(averageScores);
 
 //--------------------------------------------------
 //--------------------------------------------------
@@ -137,8 +204,6 @@
 // const combined = [...array1, ...array2];
 
 // console.log(combined);
-
-
 
 //--------------------------------------------------
 //------------------------------------------------
@@ -219,7 +284,7 @@
 // 3. Testing Strings
 // const words = ['apple', 'banana', 'cherry'];
 
-// // Implicit return
+// // // Implicit return
 // const hasShortWord = words.some((word) => word.length < 5);
 // console.log(hasShortWord); 
 // // Explicit return
@@ -333,6 +398,13 @@
 //array.reduce(callback(accumulator, currentValue, index, array), initialValue);
 //1. Summing Numbers
 // const numbers = [1, 2, 3, 4, 5];
+// const sumEven = numbers.reduce((acc, num) => {
+//     if(num % 2 === 0){
+//         return acc + num
+//     }
+//     return acc
+// }, 0)
+// console.log(sumEven);
 
 // const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
@@ -368,7 +440,7 @@
 
 //--------------------------------------------------
 // 5. Finding the Maximum Value
-// const numbers = [10, 5, 20, 8];
+// const numbers = [-10, -5, -20, -8];
 
 // const max = numbers.reduce((acc, cur) => (cur > acc ? cur : acc), -Infinity);
 
