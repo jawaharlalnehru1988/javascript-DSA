@@ -1276,3 +1276,105 @@
 // console.log(newLength); 
 // console.log(fruits);
 
+
+//--------------------------------------------------
+//--------------------------------------------------
+//array.toLocaleString(locales, options);
+//1. Basic Usage
+
+// const numbers = [1, 2, 3, 4, 5];
+
+// console.log(numbers.toLocaleString());
+
+//--------------------------------------------------
+// 2. Basic Usage with strings
+// const fruits = ['apple', 'banana', 'cherry'];
+// console.log(fruits.toLocaleString());
+
+//--------------------------------------------------
+// 3. Numbers with Locale Formatting
+// const numbers = [123456.789, 987654.321];
+
+// console.log(numbers.toLocaleString('en-US'));
+// console.log(numbers.toLocaleString('en-IN')); 
+
+//--------------------------------------------------
+// 4. Dates with Locale Formatting
+
+// const dates = [new Date('2023-12-01'), new Date('2024-01-01')];
+
+// console.log(dates.toLocaleString('en-US'));
+// console.log(dates.toLocaleString('en-IN'));
+
+//--------------------------------------------------
+// 5.  Combining Numbers and Dates
+// const mixed = [123456.789, new Date('2023-12-01')];
+
+// console.log(mixed.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+
+//--------------------------------------------------
+// const today = [new Date()];
+
+// console.log(today.toLocaleString('fr-FR', { dateStyle: 'long' }));
+
+//--------------------------------------------------
+// const data = [123456, 'example', new Date('2024-01-01')];
+
+// console.log(data.toLocaleString('ja-JP'));
+
+//--------------------------------------------------
+//--------------------------------------------------
+//const newArray = array.with(index, value);
+//1. Basic Usage
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// const newFruits = fruits.with(1, 'orange');
+// console.log(newFruits); 
+// console.log(fruits); 
+
+//--------------------------------------------------
+// 2. Using a Negative Index
+// const numbers = [10, 20, 30, 40];
+
+// const updatedNumbers = numbers.with(-2, 99);
+// console.log(updatedNumbers);
+
+//--------------------------------------------------
+// Index Out of Range
+// const items = ['pen', 'pencil', 'eraser'];
+// try {
+//     const updatedAnimals = animals.with(5, 'elephant');
+//     console.log('updatedAnimals :', updatedAnimals);
+//   } catch (error) {
+//     console.error(error.message); 
+//   }
+
+//--------------------------------------------------
+//--------------------------------------------------
+//array.at(index);
+//1. Accessing Elements with Positive Indices
+
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// console.log(fruits.at(0)); 
+// console.log(fruits.at(1)); 
+// console.log(fruits.at(2));
+
+//--------------------------------------------------
+// 2. Accessing Elements with Negative Indices
+// const numbers = [10, 20, 30, 40];
+
+// console.log(numbers.at(-1)); 
+// console.log(numbers.at(-2)); 
+// console.log(numbers.at(-3)); 
+
+//--------------------------------------------------
+// 3. Out-of-Bounds Indices
+
+// const items = ['pen', 'pencil', 'eraser'];
+
+// try {
+//     console.log(items.at(5)); 
+//   } catch (error) {
+//     console.error(error.message); 
+//   }  
