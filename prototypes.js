@@ -840,5 +840,439 @@
 // const numbers = ['apple', 'banana', 'cherry', 'banana'];
 // const index = numbers.indexOf('banana', -2);
 // console.log(index); 
+//--------------------------------------------------
+//Examples in Real Scenarios
+// Check If an Array Contains an Element
+// const numbers = [10, 20, 30, 40];
+
+// if (numbers.indexOf(20) !== -1) {
+//   console.log('Array contains 20');
+// }
+//--------------------------------------------------
+//--------------------------------------------------
+
+// array.lastIndexOf(searchElement, [fromIndex]);
+//1. Finding the Last Occurrence
+
+// const numbers = ['apple', 'banana', 'cherry', 'banana'];
+// const index = numbers.lastIndexOf('banana');
+// const index2 = numbers.lastIndexOf('berry');
+// console.log(index); 
+// console.log(index2);
 
 //--------------------------------------------------
+// 2. Specifying a Start Index
+
+// const numbers = ['apple', 'banana', 'cherry', 'banana'];
+// const index = numbers.lastIndexOf('banana', 2);
+// console.log(index); 
+
+//--------------------------------------------------
+// 3. Using Negative Start Index
+
+// const fruits  = ['apple', 'banana', 'cherry', 'banana'];
+// console.log(fruits.lastIndexOf('banana', -2));
+
+//--------------------------------------------------
+//--------------------------------------------------
+//array.flat([depth]);
+//1. Flattening One Level (Default Depth)
+
+// const nested = [1, [2, 3], [4, [5, 6]]];
+
+// const flattened = nested.flat();
+
+// console.log(flattened);
+
+//--------------------------------------------------
+// 2. Flattening to a Specific Depth
+
+// const nested = [1, [2, [3, [4, [5]]]]];
+
+// // Flatten one level
+// console.log(nested.flat(1)); 
+
+// // Flatten two levels
+// console.log(nested.flat(2));
+
+// // Flatten all levels
+// console.log(nested.flat(Infinity)); 
+
+//--------------------------------------------------
+// 3. Removing Empty Slots
+
+// const sparse = [1, 2, , 4, [5, , 7]];
+
+// console.log(sparse.flat());
+//--------------------------------------------------
+// Example with String
+
+// const words = ['hello', ['world', ['!']]];
+
+// console.log(words.flat(2));
+
+//--------------------------------------------------
+//--------------------------------------------------
+
+// array.flatMap(callback, [thisArg]);
+
+// 1. Basic Example
+// const nested = [[1], [2], [3]];
+
+// const result = nested.flatMap(num => num);
+
+// console.log(result);
+
+//--------------------------------------------------
+// const numbers = [1, 2, 3];
+
+// const result = numbers.flatMap(num => [num, num * 2]);
+
+// console.log(result);
+//--------------------------------------------------
+//3. Splitting Strings
+// const words = ['hello world', 'flatMap is cool'];
+
+// const result = words.flatMap(sentence => sentence.split(' '));
+
+// console.log(result);
+//--------------------------------------------------
+//4. Ignoring Empty Arrays
+// const data = [1, 2, 3, , 4, 5];
+
+// const result = data.flatMap(num => (num ? [num, num * 10] : []));
+
+// console.log(result);
+
+//--------------------------------------------------
+// Use Cases
+// 1. Mapping and Flattening
+// const users = [
+//     { name: 'Alice', tags: ['developer', 'javascript'] },
+//     { name: 'Bob', tags: ['designer', 'ui/ux'] }
+//   ];
+  
+//   const allTags = users.flatMap(user => user.tags);
+  
+//   console.log(allTags);
+
+//--------------------------------------------------
+//2. Removing Empty or Invalid Values
+// const values = [1, 2, null, 3, undefined, 4];
+
+// const cleaned = values.flatMap(val => (val ? [val] : []));
+
+// console.log(cleaned);
+
+//--------------------------------------------------
+//Transform a dataset where each item may contain multiple sub-items:
+
+// const data = [
+//     { id: 1, items: [10, 20] },
+//     { id: 2, items: [30, 40] },
+//     { id: 3, items: [50] }
+//   ];
+// const allItems = data.flatMap(entry => entry.items);
+
+// console.log(allItems);
+//--------------------------------------------------
+//--------------------------------------------------
+// array.includes(searchElement, [fromIndex]);
+// string.includes(searchString, [position]);
+// 1. Using includes() with Arrays
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// console.log(fruits.includes('banana')); 
+// console.log(fruits.includes('grape')); 
+
+//--------------------------------------------------
+//Specifying Start Index
+
+// 2. const numbers = [1, 2, 3, 4, 5];
+
+// console.log(numbers.includes(3, 2)); 
+// console.log(numbers.includes(3, 4));
+
+//--------------------------------------------------
+//Negative Start Index
+// const numbers = [1, 2, 3, 4, 5];
+
+// console.log(numbers.includes(3, -3)); 
+// console.log(numbers.includes(3, -1));
+
+//--------------------------------------------------
+// 3. Using includes() with Strings
+
+// const sentence = 'The quick brown fox jumps over the lazy dog.';
+
+// console.log(sentence.includes('fox'));
+// console.log(sentence.includes('cat'));
+
+//--------------------------------------------------
+//Specifying Start Position
+// const sentence = 'JavaScript is awesome.';
+
+// console.log(sentence.includes('awesome', 12)); 
+// console.log(sentence.includes('awesome', 20))
+
+//--------------------------------------------------
+//Case Sensitivity
+// const fruits = ['Apple', 'Banana', 'Cherry'];
+
+// console.log(fruits.includes('apple')); 
+// console.log(fruits.includes('Apple')); 
+
+//--------------------------------------------------
+//User cases 
+// Checking Element Existence
+
+// const colors = ['red', 'green', 'blue'];
+
+// if (colors.includes('green')) {
+//   console.log('The color green is in the array.');
+// }
+
+//--------------------------------------------------
+//Avoiding Index Checking
+// const animals = ['cat', 'dog', 'rabbit'];
+
+// // Using indexOf
+// if (animals.indexOf('dog') !== -1) {
+//   console.log('Dog exists!');
+// }
+
+// // Using includes
+// if (animals.includes('dog')) {
+//   console.log('Dog exists!');
+// }
+
+//--------------------------------------------------
+// const email = 'user@example.com';
+
+// if (email.includes('@')) {
+//   console.log('Valid email format.');
+// }
+//--------------------------------------------------
+// Sparse Arrays:
+// const sparse = [1, , 3];
+
+// console.log(sparse.includes(undefined));
+//--------------------------------------------------
+//Equality Check
+// const nums = [NaN, 1, 2];
+
+// console.log(nums.includes(NaN));
+
+//--------------------------------------------------
+//array.keys();
+
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// const keys = fruits.keys();
+// console.log('keys :', keys);
+
+// for (let key of keys) {
+//   console.log(key); 
+// }
+
+//--------------------------------------------------
+
+//2. Using keys() with a Sparse Array
+// const sparseArray = [10, , 20, , 30];
+
+// const keys = sparseArray.keys();
+
+// for (let key of keys) {
+//   console.log(key);
+// }
+
+//--------------------------------------------------
+//3. Converting Keys to an Array
+// const array = ['a', 'b', 'c'];
+
+// const keysArray = [...array.keys()];
+// console.log(keysArray);
+//
+//--------------------------------------------------
+//Common Use Cases
+//1. Iterating Over Array Indices
+// const names = ['Alice', 'Bob', 'Charlie'];
+
+// for (let index of names.keys()) {
+//   console.log(`Index: ${index}, Name: ${names[index]}`);
+// }
+
+//--------------------------------------------------
+//2. Generating Ranges
+// const range = [...Array(10).keys()];
+// console.log(range);
+//--------------------------------------------------
+// Example in Real Scenario
+
+// const scores = [85, 90, 78, 92];
+
+// for (let index of scores.keys()) {
+//   if (index % 2 === 0) {
+//     console.log(`Score at even index ${index}: ${scores[index]}`);
+//   }
+// }
+
+//--------------------------------------------------
+//Creating an Array Iterator
+// const arr = ['a', 'b', 'c'];
+// const keysIterator = arr.keys();
+// console.log(keysIterator.next()); 
+// console.log(keysIterator.next().value);
+// console.log(keysIterator.next().value);
+// console.log(keysIterator.next().done);
+
+
+//--------------------------------------------------
+//--------------------------------------------------
+//array.values();
+// 1. Basic Usage
+// const fruits = ['apple', 'banana', 'cherry'];
+// const values = fruits.values();
+
+// for (let value of values) {
+//   console.log(value); 
+// }
+
+//--------------------------------------------------
+// 2. Using values() with a Sparse Array
+// const sparseArray = [10, , 20, , 30];
+
+// const values = sparseArray.values();
+
+// for (let value of values) {
+//   console.log(value); 
+// }
+
+//--------------------------------------------------
+// 3. Converting Values to an Array
+// const array = ['a', 'b', 'c'];
+
+// const valuesArray = [...array.values()];
+// console.log(valuesArray);
+
+//--------------------------------------------------
+// 4. Iterating Over Array Values
+// const scores = [85, 90, 78, 92];
+
+// for (let value of scores.values()) {
+//   console.log(value);
+// }
+//--------------------------------------------------
+// 5. Pairing with keys()
+// const animals = ['cat', 'dog', 'rabbit'];
+
+// const keys = animals.keys();
+// const values = animals.values();
+
+// for (let key of keys) {
+//   console.log(`Index: ${key}, Value: ${animals[key]}`);
+// }
+
+//--------------------------------------------------
+//--------------------------------------------------
+//array.entries();
+
+// 1. Basic Usage
+// const fruits = ['apple', 'banana', 'cherry'];
+// const entries = fruits.entries();
+
+// for (let entry of entries) {
+//   console.log(entry); 
+// }
+
+//--------------------------------------------------
+// 2. Using [index, value] Pairs
+// const scores = [85, 90, 78, 92];
+
+// for (let [index, score] of scores.entries()) {
+//   console.log(`Score at index ${index}: ${score}`);
+// }
+
+//--------------------------------------------------
+
+// Generating a Key-Value Array
+// const data = [100, 200, 300];
+
+// const keyValuePairs = [...data.entries()];
+// console.log(keyValuePairs);
+
+//--------------------------------------------------
+//--------------------------------------------------
+// array.pop();
+
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// console.log(fruits.pop()); // 'cherry'
+
+// console.log(fruits); // ['apple', 'banana']
+
+//--------------------------------------------------
+//When the Array is Empty
+
+// const emptyArray = [];
+
+// console.log(emptyArray.pop()); // undefined
+
+// console.log(emptyArray); // []   
+
+//--------------------------------------------------
+//--------------------------------------------------
+
+//array.push(element1, element2, ...);
+
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// fruits.push('orange', 'grape');
+
+// console.log(fruits); // ['apple', 'banana', 'cherry', 'orange', 'grape']
+
+//--------------------------------------------------    
+// const fruits = ['apple', 'banana'];
+
+// const newLength = fruits.push('cherry', 'date');
+// console.log(newLength); 
+// console.log(fruits);  
+//--------------------------------------------------
+//--------------------------------------------------
+//array.shift();
+// 1. Basic Usage
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// console.log(fruits.shift()); 
+
+// console.log(fruits);
+
+//--------------------------------------------------
+
+//When the Array is Empty
+
+// const emptyArray = [];
+
+// console.log(emptyArray.shift());
+
+// console.log(emptyArray); 
+
+//--------------------------------------------------
+//--------------------------------------------------
+//array.unshift(element1, element2, ...);
+// 1. Basic Usage
+
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// fruits.unshift('orange', 'grape');
+
+// console.log(fruits); 
+
+//--------------------------------------------------
+
+// const fruits = ['banana', 'cherry'];
+
+// const newLength = fruits.unshift('apple', 'grape');
+// console.log(newLength); 
+// console.log(fruits);
+
