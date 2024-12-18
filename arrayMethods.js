@@ -1,3 +1,5 @@
+
+
 // array.forEach(callback(currentValue, index, array), thisArg);
 
 // 1. Logging each element to the console:
@@ -26,6 +28,7 @@
 // const numbers = [1, 2, 3, 4, 5];
 
 // numbers.forEach((num) => {
+//   // total = total + num;
 //   total += num;
 // });
 
@@ -63,7 +66,7 @@
 //--------------------------------------------------
 // 6. Does not modify values in the original array if it is primitive values
 // const numbers = [1, 2, 3];
-// numbers.forEach(number => number = number * 2); 
+// numbers.forEach(number =>  number * 2); 
 // console.log(numbers); 
 
 // --------------------------------------------------
@@ -84,8 +87,9 @@
 // fetch("https://jsonplaceholder.typicode.com/posts")
 //     .then((response) => response.json())
 //     .then((posts) => {
+//     console.log('posts :', posts);
 //         posts.forEach((post) => {
-//             ids.push(post.id);
+//             ids.push(post.userId);
 //         });
 //         console.log(ids);
 //     });
@@ -94,13 +98,13 @@
 // 9. Performing checks on each array element.
 
 // const emails = ["user1@gmail.com", "invalid-email", "user2@yahoo.com"];
-// const valideEmails = [];
+// const validEmails = [];
 // emails.forEach((email) => {
 //     if (email.includes("@")) {
-//         valideEmails.push(email);
+//         validEmails.push(email);
 //     }
 // });
-// console.log(valideEmails);
+// console.log(validEmails);
 
 //--------------------------------------------------
 // 10. Summing up or performing calculations on data
@@ -132,11 +136,11 @@
 
 // --------------------------------------------------
 // 12. Using forEach() to access index and array
-//. Accessing Index and Array
+// . Accessing Index and Array
 // const fruits = ['apple', 'banana', 'cherry'];
 
 // fruits.forEach((fruit, index) => {
-//   console.log(`${index}: ${fruit}`);
+//   console.log(`${index+1}: ${fruit}`);
 // });
 
 // --------------------------------------------------
@@ -148,7 +152,10 @@
 //   doubled.push(num * 2);
 // });
 
+// console.log(numbers);
+
 // console.log(doubled);
+
 
 //--------------------------------------------------
 // 14. Nested forEach Loops
@@ -167,14 +174,11 @@
 // },
 // ];
 
-// // Outer forEach for categories
 // store.forEach((section) => {
-// console.log(`Category: ${section.category}`);
-
-// // Inner forEach for products
-// section.products.forEach((product) => {
+//   console.log(`Category: ${section.category}`);
+//   section.products.forEach((product) => {
 //     console.log(` - ${product}`);
-// });
+//   });
 // });
 
 //-------------- forEach() ends ----------------------
