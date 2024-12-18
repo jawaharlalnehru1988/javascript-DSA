@@ -218,8 +218,7 @@
 // 4. Changing Array Structure
 
 // const numbers = [1, 2, 3, 4, 5];
-// const doubledObjects = numbers.map((num) => ({ original: num, doubled: num * 2 }));
-
+// const doubledObjects = numbers.map(num => ({ name: num, value : num *3}))
 // console.log(doubledObjects);
 
 // --------------------------------------------------
@@ -239,14 +238,12 @@
 //     { oldKey1: 'value3', oldKey2: 'value4' },
 //   ];
   
-//   const transformed = data.map((item) => {
-//     return {
-//       newKey1: item.oldKey1,
-//       newKey2: item.oldKey2
-//     };
-//   });
-  
-//   console.log(transformed);
+// const keyupdates = data.map((obj) => {
+//   return {newKey1: obj.oldKey1, newKey2: obj.oldKey2}
+// });
+
+// console.log(keyupdates);
+
 //--------------------------------------------------
 // 7. Adding Additional Fields to Objects
 // const users = [
@@ -255,26 +252,24 @@
 //     { name: 'Charlie', age: 15 },
 //   ];
   
-//   const updatedUsers = users.map(user => ({
-//     ...user,
-//     isAdult: user.age >= 18,
-//   }));
-  
-//   console.log(updatedUsers);
+// const newFieldAdded = users.map(obj => ({...obj, balance: obj.age * 3}))
+
+// console.log(newFieldAdded);
+
   //--------------------------------------------------
   //  8. extracting specific fields from objects
-//   const products = [
-//     { id: 1, name: 'Laptop', price: 1000 },
-//     { id: 2, name: 'Phone', price: 500 },
-//     { id: 3, name: 'Tablet', price: 300 },
-//   ];
+  // const products = [
+  //   { id: 1, name: 'Laptop', price: 1000 },
+  //   { id: 2, name: 'Phone', price: 500 },
+  //   { id: 3, name: 'Tablet', price: 300 },
+  // ];
   
-//   const productIds = products.map(product => ({
-//     id: product.id,
-//     name: product.name
-//   }));
+  // const productIds = products.map(product => ({
+  //   id: product.id,
+  //   name: product.name
+  // }));
   
-//   console.log(productIds);
+  // console.log(productIds);
 
 //--------------------------------------------------
 // 7. Formatting Strings
@@ -291,12 +286,14 @@
 //     { name: 'Bob', scores: [15, 25, 35] },
 //   ];
   
-//   const averageScores = data.map(item => ({
-//     name: item.name,
-//     averageScore: item.scores.reduce((sum, score) => sum + score, 0) / item.scores.length,
-//   }));
-  
-//   console.log(averageScores);
+//  const averageScore = data.map(obj => {
+//   const average = obj.scores.reduce((acc, num)=> (num + acc)/obj.scores.length, 0);
+//    return {name: obj.name, averageScore:parseFloat(average.toFixed(2)) }
+//   });
+//   console.log('averageScore :', averageScore);
+
+ 
+ 
 
 //--------------------------------------------------
 //--------------------------------------------------
@@ -359,9 +356,8 @@
 
 // const numbers = [2, 4, 6, 8];
 
-// const allEven = numbers.every((num) => num % 2 === 0);
-
-// console.log(allEven); 
+// const allEven = numbers.every( num => num % 2 === 0)
+// console.log('allEven :', allEven);
 
 //--------------------------------------------------
 // 2. Checking for a Specific Range
@@ -430,11 +426,12 @@
 // 3. Testing Strings
 // const words = ['apple', 'banana', 'cherry'];
 
-// // // Implicit return
+// // Implicit return
 // const hasShortWord = words.some((word) => word.length < 5);
-// console.log(hasShortWord); 
+// console.log(hasShortWord);
+
 // // Explicit return
-// const hasShortWordExplicit = words.some(function (word) {
+//  const hasShortWordExplicit = words.some(function (word) {
 //   return word.length < 5;
 // });
 // console.log(hasShortWordExplicit); 
@@ -543,14 +540,15 @@
 //--------------------------------------------------
 //array.reduce(callback(accumulator, currentValue, index, array), initialValue);
 //1. Summing Numbers
-// const numbers = [1, 2, 3, 4, 5];
-// const sumEven = numbers.reduce((acc, num) => {
-//     if(num % 2 === 0){
-//         return acc + num
-//     }
-//     return acc
+// const numbers = [1, 2, 3, 4, 5, 6];
+// const addedEven = numbers.reduce((acc, num)=>{
+//   if (num % 2 === 0) {
+//     return acc + num;
+//   } else {
+//     return acc;
+//   }
 // }, 0)
-// console.log(sumEven);
+// console.log('addedEven :', addedEven);
 
 // const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
@@ -569,20 +567,20 @@
 
 // const array = [[1, 2], [3, 4], [5, 6]];
 
-// const flattened = arrays.reduce((acc, cur) => acc.concat(cur), []);
-// console.log(flattened);
+// const flattenedArray = array.reduce((acc, num) => acc.concat(num) , [])
+// console.log('flattenedArray :', flattenedArray);
 
 //--------------------------------------------------
 // 4. Counting Occurrences
 
 // const fruits = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
 
-// const count = fruits.reduce((acc, fruit) => {
-//   acc[fruit] = (acc[fruit] || 0) + 1;
+// const countFruits = fruits.reduce((acc, ele)=>{
+//   acc[ele] = (acc[ele] || 0) + 1;
 //   return acc;
-// }, {});
+// }, {})
 
-// console.log(count);
+// console.log(countFruits);
 
 //--------------------------------------------------
 // 5. Finding the Maximum Value
@@ -591,6 +589,20 @@
 // const max = numbers.reduce((acc, cur) => (cur > acc ? cur : acc), -Infinity);
 
 // console.log(max);
+
+// 6. find the second maximum value
+
+// const secondMax = numbers.reduce((acc, cur) => {
+//     if (cur > acc.max) {
+//         acc.secondMax = acc.max;
+//         acc.max = cur;
+//     } else if (cur > acc.secondMax && cur !== acc.max) {
+//         acc.secondMax = cur;
+//     }
+//     return acc;
+// }, { max: -Infinity, secondMax: -Infinity });
+
+// console.log(secondMax.secondMax);
 
 //--------------------------------------------------
 // 6. Using No initialValue
@@ -721,7 +733,7 @@
 // console.log(numbers);
 
 //--------------------------------------------------
-//4. Sorting Objects
+//4. Sorting Objects based on number value in object
 // const users = [
 //     { name: 'Alice', age: 25 },
 //     { name: 'Bob', age: 30 },
@@ -731,6 +743,18 @@
 //   users.sort((a, b) => a.age - b.age);
   
 //   console.log(users);        
+
+//--------------------------------------------------
+// 5. Sorting Objects based on number value in object
+// users = [
+//   { name: 'Alice', age: 25 },
+//   { name: 'Bob', age: 30 },
+//   { name: 'Charlie', age: 20 },
+// ];
+
+// users.sort((a, b) => b.name.localeCompare(a.name));
+
+// console.log(users);   
 
 //--------------------------------------------------
 //4. Sorting Strings (Case Sensitivity)
@@ -763,7 +787,7 @@
 
 // const originalArray = [3, 1, 2];
 
-// const newArray = originalArray.toSorted((a, b) => a - b);
+// const newArray = originalArray.toSorted((a, b) => a - b)
 
 // console.log(originalArray); 
 // console.log(newArray)
@@ -966,7 +990,7 @@
 // 1. Filling an Entire Array
 // const numbers = [1, 2, 3, 4, 5];
 
-// numbers.fill(0);
+// numbers.fill({value:9});
 
 // console.log(numbers);
 
@@ -987,14 +1011,7 @@
 // console.log(numbers);
 
 //--------------------------------------------------
-// 4. Filling an Array with a Function
-// const numbers = [1, 2, 3, 4, 5];
 
-// numbers.fill(function () {
-//     return Math.random();
-//   });
-
-// console.log(numbers);
 
 //--------------------------------------------------
 // 5. Filling an Empty Array
@@ -1108,6 +1125,7 @@
 // const nested = [1, [2, [3, [4, [5]]]]];
 
 // // Flatten one level
+// console.log(nested.flat()); 
 // console.log(nested.flat(1)); 
 
 // // Flatten two levels
@@ -1206,7 +1224,7 @@
 //--------------------------------------------------
 //Specifying Start Index
 
-// 2. const numbers = [1, 2, 3, 4, 5];
+// const numbers = [1, 2, 3, 4, 5];
 
 // console.log(numbers.includes(3, 2)); 
 // console.log(numbers.includes(3, 4));
