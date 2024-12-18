@@ -1,31 +1,40 @@
 // array.forEach(callback(currentValue, index, array), thisArg);
-//Basic Iteration
+
+// 1. Logging each element to the console:
+
 // const numbers = [1, 2, 3, 4, 5];
 
 // numbers.forEach((num) => {
 //   console.log(num); 
 // });
 
-// --------------------------------------------------
-//2. Accessing Index and Array
-// const fruits = ['apple', 'banana', 'cherry'];
+//--------------------------------------------------
+// 2. Modifying properties of objects within an array:
 
-// fruits.forEach((fruit, index) => {
-//   console.log(`${index}: ${fruit}`);
-// });
+// const users = [
+//   { name: "Alice", active: false },
+//   { name: "Bob", active: false },
+// ];
+// users.forEach(user => user.active = true);
+// console.log(users);
 
-// --------------------------------------------------
-//3. Modifying Values in Another Array
-// const numbers = [1, 2, 3];
-// const doubled = [];
+//--------------------------------------------------
+// 3. Updating an external variable based on array elements:
+
+// let total = 0;
+
+// const numbers = [1, 2, 3, 4, 5];
 
 // numbers.forEach((num) => {
-//   doubled.push(num * 2);
+//   total += num;
 // });
 
-// console.log(doubled);
+// console.log(total);
 
-// --------------------------------------------------
+//--------------------------------------------------
+
+// 4. Using the this keyword in the callback:
+
 // const person = {
 //     name: "Nehru",
 //     greetAll: function (names) {
@@ -35,8 +44,141 @@
 //     },
 //   };
 
-//   person.greetAll(["Alice", "Bob", "Charlie"]);
+// person.greetAll(["Hari", "Kumar", "Rahul"]); 
 
+//--------------------------------------------------
+// 5. Using the this keyword in the callback implicitly:
+
+// const person = {
+//   name: "Nehru",
+//   greetAll: function (names) {
+//     names.forEach( (name) =>{
+//       console.log(`${this.name} greets ${name}`);
+//     }); 
+//   },
+// };
+
+// person.greetAll(["Hari", "Kumar", "Rahul"]); 
+
+//--------------------------------------------------
+// 6. Does not modify values in the original array if it is primitive values
+// const numbers = [1, 2, 3];
+// numbers.forEach(number => number = number * 2); 
+// console.log(numbers); 
+
+// --------------------------------------------------
+// 7. Modify each element of an array without creating a new array.
+// Adding 10% tax
+
+// const prices = [100, 200, 300];
+
+// prices.forEach((price, index, array) => {
+//     array[index] = price + price * 0.1; 
+// });
+
+// console.log(prices);
+
+//--------------------------------------------------
+// 8. Processing data returned from an API call
+// let ids = [];
+// fetch("https://jsonplaceholder.typicode.com/posts")
+//     .then((response) => response.json())
+//     .then((posts) => {
+//         posts.forEach((post) => {
+//             ids.push(post.id);
+//         });
+//         console.log(ids);
+//     });
+
+//--------------------------------------------------
+// 9. Performing checks on each array element.
+
+// const emails = ["user1@gmail.com", "invalid-email", "user2@yahoo.com"];
+// const valideEmails = [];
+// emails.forEach((email) => {
+//     if (email.includes("@")) {
+//         valideEmails.push(email);
+//     }
+// });
+// console.log(valideEmails);
+
+//--------------------------------------------------
+// 10. Summing up or performing calculations on data
+
+// const cart = [{ price: 100 }, { price: 200 }, { price: 300 }];
+// let total = 0;
+
+// cart.forEach((item) => {
+//     total += item.price;
+// });
+
+// console.log(`Total Price: ${total}`);
+
+//--------------------------------------------------
+// 11. Filtering data
+//  const sentences = [
+//   "JavaScript is awesome.",
+//   "I love learning JavaScript.",
+//   "forEach makes things easy."
+// ];
+
+// const keyword = "JavaScript";
+
+// sentences.forEach((sentence) => {
+//   if (sentence.includes(keyword)) {
+//       console.log(`Matched: ${sentence}`);
+//   }
+// });
+
+// --------------------------------------------------
+// 12. Using forEach() to access index and array
+//. Accessing Index and Array
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// fruits.forEach((fruit, index) => {
+//   console.log(`${index}: ${fruit}`);
+// });
+
+// --------------------------------------------------
+// 13. Modifying Values in Another Array
+// const numbers = [1, 2, 3];
+// const doubled = [];
+
+// numbers.forEach((num) => {
+//   doubled.push(num * 2);
+// });
+
+// console.log(doubled);
+
+//--------------------------------------------------
+// 14. Nested forEach Loops
+// const store = [
+//   {
+//     category: "Electronics",
+//     products: ["Laptop", "Smartphone", "Tablet"],
+// },
+// {
+//     category: "Clothing",
+//     products: ["T-shirt", "Jeans", "Jacket"],
+// },
+// {
+//     category: "Groceries",
+//     products: ["Milk", "Bread", "Eggs"],
+// },
+// ];
+
+// // Outer forEach for categories
+// store.forEach((section) => {
+// console.log(`Category: ${section.category}`);
+
+// // Inner forEach for products
+// section.products.forEach((product) => {
+//     console.log(` - ${product}`);
+// });
+// });
+
+//-------------- forEach() ends ----------------------
+                                                                                                                                                                                                                                  
 // --------------------------------------------------
 //--------------------------------------------------
 //array.map(callback(currentValue, index, array), thisArg);
