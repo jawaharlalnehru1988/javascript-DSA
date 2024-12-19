@@ -113,29 +113,7 @@
 // console.log(findMedian(array));
 // console.log(findMedian(array2));
 
-function generatePermutations(str) {
-    const results = [];
-  
-    function permute(arr, temp = []) {
-      if (arr.length === 0) {
-        results.push(temp.join(""));
-      } else {
-        for (let i = 0; i < arr.length; i++) {
-          const current = arr.slice(); // Copy the array
-          const next = current.splice(i, 1); // Remove the current character
-          permute(current, temp.concat(next)); // Recurse with the rest
-        }
-      }
-    }
-  
-    permute(str.split(""));
-    return results;
-  }
-  
-  // Example usage
-  const permutations = generatePermutations("ABC");
-  console.log(permutations);
-  
+
 
 
 
