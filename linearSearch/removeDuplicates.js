@@ -202,3 +202,31 @@
 // const uniqueObjects = removeDuplicatesObjFilter(objects);
 // console.log('uniqueObjects :', uniqueObjects);
 
+
+//--------------------------------------------------------------------
+// Remove duplicate arrays from an array using imperative method
+
+// function removeDuplicatesArrImp(arr) {
+//     const uniqueArr = [];
+//     const uniqueSet = new Set();
+//     for(let i = 0; i < arr.length; i++){
+//         const arrString = JSON.stringify(arr[i]);
+//         if(!uniqueSet.has(arrString)){
+//             uniqueSet.add(arrString);
+//             uniqueArr.push(arr[i]);
+//         }
+//     }
+//     return uniqueArr;
+// }
+
+// // // Example usage:
+// const arrays = [
+//     [1, 2, 3],
+//     [2, 3, 4],
+//     [1, 2, 3],
+//     [2, 3, 4],
+//     [1, 2, 3],
+//     [2, 3, 4],
+// ];
+// const uniqueArrays = removeDuplicatesArrImp(arrays);
+// console.log('uniqueArrays :', uniqueArrays);
